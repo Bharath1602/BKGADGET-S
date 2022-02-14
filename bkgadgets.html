@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bkgadgets</title>
+    <link rel="stylesheet" href="bkgadgets.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!---we had linked our css file----->
+    <style>
+      #table,th,td{border: px solid rgb(150, 12, 12);background-color:white;padding:15px;height: 100%;width: 40%;}
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+      }
+      
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+      
+      @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;} 
+        to {bottom: 30px; opacity: 1;}
+      }
+      
+      @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+      }
+      
+      @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;} 
+        to {bottom: 0; opacity: 0;}
+      }
+      
+      @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+      }
+	  
+	  
+	  
+	  
+	  #myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/* Style the header */
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fcf0f0;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: rgb(97, 94, 96);
+  color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+      </style>
+</head>
+
+<body style="background-color: gold;" >
+ 
+
+ 
+ 
+		 <!-- Slideshow container -->
+<div class="slideshow-container">
+  
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="r8.jpg" style="width:100%">
+    <div class="centered" style="font-size:40px;font-family:algerian;color:orange;text-align:center;"><B>WELCOME TO GADGETS WORLD!</B><br>The Avail is Over!!! Here we got you the Brand New Tech Products And  Gadgets With Best Offer and Cashbacks</div>
+	<div class="header" id="myHeader">
+    <div class="glow" style="font-size:80px;font-family:algerian;color:white;text-align:left;">BK_GADGETS</div></div>
+
+   <button class='loginbtn' onclick="document.getElementById('login-           form').style.display='block'" style="width:auto;" ><a href="#"> Login</button></a>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="r5.jpg" style="width:100%">
+    <div class="centered" style="font-size:50px;font-family:algerian;color:palegreen;text-align:left;"><br><br><br><br><br>THE GRAND GADGET DAY IS HERE<BR><I>UPTO 80% OFF</I></div>
+		<div class="header" id="myHeader">
+       <div class="glow" style="font-size:80px;font-family:algerian;color:white;text-align:left;">BK_GADGETS</div></div>
+
+    <button class='loginbtn' onclick="document.getElementById('login-           form').style.display='block'" style="width:auto;" ><a href="http://localhost/ABCD/"> Login</button></a>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="e1.jpg" style="width:100%">
+    <div class="centered" style="font-size:50px;font-family:algerian;color:orangered;text-align:left;"><br><br><br><br><br><br>BRAND NEW LAPTOP'S FOR SALE!!!  </div>
+		<div class="header" id="myHeader">
+      <div class="glow" style="font-size:80px;font-family:algerian;color:white;text-align:left;">BK_GADGETS</div></div>
+
+    <button class='loginbtn' onclick="document.getElementById('login-           form').style.display='block'" style="width:auto;" ><a href="http://localhost/ABCD/"> Login</button></a>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+        
+
+  
+
+      <hr><h1 style="font-size:30;text-align:center;font-family:algerian;color:blue;">DEAL OF THE DAY</hr></h1>
+      <hr><P style="font-size:50;text-align:center;font-family:times new roman;"> <span style="color:green"> </P></span><br>
+   
+<div class="row">
+  <div class="column">
+    <img src="a3.jpg" alt="LAPTOP" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="a1.jpg" alt="LAPTOP" style="width:100% ">
+  </div>
+  <div class="column">
+    <img src="a2.jpg" alt="LAPTOP" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="a4.jpg" alt="LAPTOP" style="width:100%">
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+<hr><h1 style="font-size:50px;text-align:center;font-family:algerian;color:rgb(43, 6, 177);">LAPTOP</hr></h1>
+<hr><P style="font-size:70px;text-align:center;font-family:times new roman;"> <span style="color:rgb(172, 10, 110)">Lenovo Ideapad Gaming 3 </P></span><br>
+
+
+
+
+
+<div class="image-grid">
+  <img class="image-grid-col-2 image-grid-row-2" src="b1.jpg" alt="architecture">
+  <img src="b2.jpg" alt="architecture">
+  <img src="b3.jpg" alt="architecture">
+  <img src="img2.jpg" alt="architecture">
+  <img src="img5.jpg" alt="architecture">
+</div>
+
+
+
+
+
+
+<table>
+
+<tr>
+<th style="font-size:30PX;text-align:center;font-family:algerian;color:rgb(59, 19, 206);">MODEL  NAME & NO</th>
+<th style="font-size:30PX;text-align:center;font-family:algerian;color:rgb(74, 28, 184);">SPECIFICATION</th>
+<th style="font-size:30PX;text-align:center;font-family:algerian;color:rgb(79, 13, 184);">PRICE IN INR</th>
+
+</tr>
+<tr>
+  <td ><center><a href="#"><img src="b1.jpg" style="width:50%"></a></center><li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">Lenovo Ideapad Gaming 3 AMD Ryzen 7 5800H 15.6" (39.62cm) FHD IPS Gaming Laptop (16GB/512GB SSD/Windows 11/Nvidia GTX 1650 4GB/120Hz Refresh Rate/Backlit Keyboard/Shadow Black/2.25Kg), 82K200X2IN</li></td>
+<td>
+<ul>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">1. Series : IdeaPad Gaming 3</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">2. Colour	: SHADOW_BLACK</li>
+<li style="font-size:30px;font-family:algerian;color:orangereD;overflow-x:auto;">3. Form Factor : Gaming</li>
+<li style="font-size:30px;font-family:algerian;color:orangereD;overflow-x:auto;">4. Processor Brand :NVIDIA</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">5. Item model number : 82K200X2IN</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">6. Processor Type : Ryzen 7</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">7. RAM Size	: 16 GB</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">8. Hard Disk Description	: SSD</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">9. OS	: Windows 11 Home</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">10. Average Battery Life : 5 Hours</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">11. Country of Origin	: China</li>
+<li style="font-size:30px;font-family:algerian;color:orangered;overflow-x:auto;">12. Item Weight	: 2 kg 250 g</li>
+
+<td style="font-size:30px;font-family:algerian;color:pink;"><strong><mark>Price:	₹77,990.00</strong></mark><BR><br><center><button style="font-size:40px;font-family:algerian;color:orangered;background-color: pink;">BUY NOW</button></center>
+</td>
+
+</ul>
+</td>
+</tr>
+</table>
+<br>
+
+<hr><h1 style="font-size:30;text-align:center;font-family:algerian;color:blue;">PRODUCT SPEC DETAILS</h1></hr>
+
+
+
+<div class="main">
+  
+  <!-- Portfolio Gallery Grid -->
+  <div class="row">
+    <div class="column">
+      <div class="content">
+        <img src="img1.jpg" alt="Mountains" style="width:100%">
+        <h3>Thin light and powerful.</h3>
+        <p>The IdeaPad gaming is designed for gaming on the go, its thin and light design ensures that no matter where you go you can take your powerful game machine with you. Now whether it’s college, office or even the airport be assured your device will have sturdiness as well as portability because this device is a MIL-STD-810G Qualified Design for various Military Specification Tests like Low & High Temperature (-25 to 63°C for 4 hours)</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img2.jpg" alt="Lights" style="width:100%">
+        <h3>Power waiting to unleash</h3>
+        <p>The 5th generation AMD Ryzen 7 processor is always ready to deliver power when needed, but that’s not the only thing that’s packed in the IdeaPad gaming. The GeForce GTX 1650 4GB GDDR6 GPU featuring 2nd generation raytracing, 3rd generation tensor cores as well as NVIDIA’s DLSS, Reflex, Broadcast and Studio is always there to give the added power for hardcore gaming and streaming.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img3.jpg" alt="Nature" style="width:100%">
+        <h3>Smooth and stutter free gaming</h3>
+        <p>
+          The 15.6” FHD IPS display will provide you with plenty of screen real estate on your next adventure while its 120Hz refresh rate will ensure that every game and every session is smooth and stutter free, while also boasting a 3-sided narrow bezel for added style. Now go into every match assured that you will have a lag free pace.Advanced thermals for advanced gamers Advanced thermals for advanced gamers</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img4.jpg" alt="Mountains" style="width:100%">
+        <h3>Advanced thermals for advanced gamers</h3>
+        <p>
+          The new and improved thermals ensure 100% better ventilation rates compared to its predecessors as well as 3 heat pipes that dissipate 35% more efficiently. Now you don’t need to worry about thermal throttling and overheating as you game. Get unthrottled performance in every session with 21% larger thermal area.Advanced thermals for advanced gamersAdvanced thermals for advanced gamersAdvanced thermals </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img5.jpg" alt="Mountains" style="width:100%">
+        <h3>Type like a legionnaire</h3>
+        <p>
+          The Legionary TrueStrike keyboard features a wide range of controls, including a number pad, dedicated media controls, large arrow keys for gaming and a 1.5mm key travel, as well as a backlight for night time use and anti-ghosting. Now every strike will be as satisfying as the last.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img6.jpg" alt="Mountains" style="width:100%">
+        <h3>Sound that surrounds</h3>
+        <p>
+          Sound that surrounds The 2w x 2 Nahimic Audio speakers feature high quality sound for every use. Whether it's music, movies or gaming, you get realistic surround sound every time. Featuring surround sound, sound tracking, Bluetooth sound sharing and night mode. </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img7.jpg" alt="Mountains" style="width:100%">
+        <h3>Connectivity as well as privacy</h3>
+        <p>
+          
+Always be ready to connect with multiple ports including HDMI 2.1 and 3 USB 3.2 Gen 1 (1 for Data Transfer) ports. While your privacy will always be of utmost priority, with the camera privacy shutter rest assured that any prying eyes aren’t snooping at you. </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="content">
+      <img src="img8.jpg" alt="Mountains" style="width:100%">
+        <h3>The fun never stops</h3>
+        <p>
+          The fun never stops Featuring rapid charge that can get you up and ready in a matter of a few minutes in case you run out. The 5 hour battery life that ensures you can go on and on throughout the day. The IdeaPad gaming ensures that the fun never stops.The fun never stops </p>
+      </div>
+    </div>
+  <!-- END GRID -->
+  </div>
+  
+
+
+
+  
+ 
+    <BR>
+
+    <span class="heading" style="font-size:30px;font-family:algerian;color:blue;">CUSTOMER RATING </span>
+    <span class="fa fa-star checked" style="font-size:30px;color:green"></span>
+    <span class="fa fa-star checked" style="font-size:30px;color:green"></span>
+    <span class="fa fa-star checked" style="font-size:30px;color:green"></span>
+    <span class="fa fa-star checked" style="font-size:30px;color:green"></span>
+    <span class="fa fa-star" style="font-size:30px;color:white"></span><br>
+    <p style="font-size:30px;font-family:algerian;color:purple;">4.1 average based on 254 reviews.</p>
+    <hr style="border:3px solid #f1f1f1">
+    
+    <div class="row">
+      <div class="side">
+        <div style="font-size:30px;font-family:algerian;color:purple;">5 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-5"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div style="font-size:30px;font-family:algerian;color:blue;">150</div>
+      </div>
+      <div class="side">
+        <div style="font-size:30px;font-family:algerian;color:purple;">4 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-4"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div style="font-size:30px;font-family:algerian;color:blue;">63</div>
+      </div>
+      <div class="side">
+        <div style="font-size:30px;font-family:algerian;color:purple;">3 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-3"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div style="font-size:30px;font-family:algerian;color:blue;">15</div>
+      </div>
+      <div class="side">
+        <div style="font-size:30px;font-family:algerian;color:purple;">2 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-2"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div style="font-size:30px;font-family:algerian;color:blue;" >6</div>
+      </div>
+      <div class="side">
+        <div style="font-size:30px;font-family:algerian;color:purple;">1 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-1"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div style="font-size:30px;font-family:algerian;color:blue;">20</div>
+      </div>
+    </div>
+
+
+
+
+<BR><BR><BR><BR>
+
+
+
+  <div class="footer">
+           
+      <p style="font-size:40px;text-align:center;font-family:algerian;color:pink;">BK_GADGETS</p>	<br>
+      <p style=font-size:30px;font-family:algerian;color:palegreen;text-align:center>THANKS FOR VISITING OUR WEBSITE!!!</B><br>I Hope Our Product's Statisfies Your Needs, See U Again CHEERS! </hr></p>
+     <br>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-google"></a>
+      <br> <br>	
+      Copyright © 2022 BK_GADGETS. All rights reserved.
+      <br>
+      <br>
+  </div>
+ 
+  
+
+
+  
+
+<script>
+
+  function myFunction() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+  </script>
+  <script> var slideIndex = 1;
+   showSlides(slideIndex);
+   
+   // Next/previous controls
+   function plusSlides(n) {
+     showSlides(slideIndex += n);
+   }
+   
+   // Thumbnail image controls
+   function currentSlide(n) {
+     showSlides(slideIndex = n);
+   }
+   
+   function showSlides(n) {
+     var i;
+     var slides = document.getElementsByClassName("mySlides");
+     var dots = document.getElementsByClassName("dot");
+     if (n > slides.length) {slideIndex = 1}
+     if (n < 1) {slideIndex = slides.length}
+     for (i = 0; i < slides.length; i++) {
+         slides[i].style.display = "none";
+     }
+     for (i = 0; i < dots.length; i++) {
+         dots[i].className = dots[i].className.replace(" active", "");
+     }
+     slides[slideIndex-1].style.display = "block";
+     dots[slideIndex-1].className += " active";
+   }
+   var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+
+</script>
+  </body>
+  </html>
+  
